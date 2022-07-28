@@ -12,9 +12,10 @@ pipeline {
         sh "node test"
       }
     }
-    stage('buildArtifact')
+    stage('buildArtifact'){
       steps {
         sh "echo build"
+      }
     }
   }
 }
