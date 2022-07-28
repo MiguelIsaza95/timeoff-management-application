@@ -8,10 +8,10 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh "
+        sh '''
         npm install
         npm i sqlite3 locate-path
-        "
+        '''
       }
     }      
     stage('Test') {
