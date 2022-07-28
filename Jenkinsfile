@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh '''
         npm install
-        npm install --save sqlite3 locate-path
+        npm install --save sqlite3
         '''
       }
     }      
