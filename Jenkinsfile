@@ -9,6 +9,7 @@ pipeline {
     stage('Install') {
       steps {
         sh "npm install"
+        sh "npm install sqlite3 --save"
       }
     }      
     stage('Test') {
