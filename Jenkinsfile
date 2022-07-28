@@ -2,21 +2,19 @@ pipeline {
   agent any
     
   stages {
-     
     stage('Install') {
       steps {
-        sh 'npm install'
+        sh "npm install"
       }
-    }  
-            
+    }      
     stage('Test') {
       steps {
-        sh 'node test'
+        sh "node test"
       }
     }
     stage('buildArtifact')
-    steps {
-        sh ''
+      steps {
+        sh "echo build"
     }
   }
 }
