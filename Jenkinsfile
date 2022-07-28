@@ -10,13 +10,13 @@ pipeline {
       steps {
         sh '''
         npm install
+        npm install --save sqlite3 locate-path
         '''
       }
     }      
     stage('Test') {
       steps {
         sh '''
-        npm i sqlite3 locate-path
         npm test
         '''
       }
