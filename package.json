@@ -43,7 +43,8 @@
     "uuid": "^8.3.2",
     "validator": "^13.7.0",
     "locate-path": "^7.1.1",
-    "psl": "^1.9.0"
+    "psl": "^1.9.0",
+    "negotiator": "^0.6.3"
   },
   "devDependencies": {
     "chai": "^4.3.6",

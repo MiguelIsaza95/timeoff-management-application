@@ -1,19 +1,14 @@
 
 'use strict';
 
-var test             = require('selenium-webdriver/testing'),
-    until            = require('selenium-webdriver').until,
-    By               = require('selenium-webdriver').By,
+var By               = require('selenium-webdriver').By,
     expect           = require('chai').expect,
-    _                = require('underscore'),
-    Promise          = require("bluebird"),
     moment           = require('moment'),
     login_user_func        = require('../../lib/login_with_user'),
     register_new_user_func = require('../../lib/register_new_user'),
     logout_user_func       = require('../../lib/logout_user'),
     open_page_func         = require('../../lib/open_page'),
     submit_form_func       = require('../../lib/submit_form'),
-    check_elements_func    = require('../../lib/check_elements'),
     check_booking_func     = require('../../lib/check_booking_on_calendar'),
     add_new_user_func      = require('../../lib/add_new_user'),
     config                 = require('../../lib/config'),
@@ -35,14 +30,13 @@ describe('Overlapping bookings', function(){
 
   this.timeout( config.get_execution_timeout() );
 
-  var non_admin_user_email, new_user_email, driver;
+  var non_admin_user_email, driver;
 
   it('Create new company', function(done){
     register_new_user_func({
       application_host : application_host,
     })
     .then(function(data){
-      new_user_email = data.email;
       driver = data.driver;
       done();
     });
