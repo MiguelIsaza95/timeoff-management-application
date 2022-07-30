@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampleapp
+  namespace: default
+  labels:
+    app: sampleapp
+spec:
+  replicas: 3
+  minReadySeconds: 45
+  selector:
+    matchLabels:
+      app: sampleapp
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: sampleapp
+    spec:
+      containers:
+        - image: us-east1-docker.pkg.dev/devops-challenge-357700/dockerchallenge/challengeapp:latest
+          imagePullPolicy: Always
+          imagePullSecret: gcr-secret
+          name: sampleapp
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 125m
+              memory: 120Mi
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
