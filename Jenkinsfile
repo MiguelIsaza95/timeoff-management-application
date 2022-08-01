@@ -44,7 +44,7 @@ pipeline {
     stage('Publish artifac'){
         steps{
             script{
-                ocker.withRegistry('https://us-east1-docker.pkg.dev', 'devops-challenge-357700'){
+                docker.withRegistry('https://us-east1-docker.pkg.dev', 'devops-challenge-357700'){
                     dockerImage.push()
                 }
             }
