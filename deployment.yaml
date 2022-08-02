@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sampleapp
+  name: timeoffapp
   namespace: default
   labels:
-    app: sampleapp
+    app: timeoffapp
 spec:
   replicas: 3
   minReadySeconds: 45
   selector:
     matchLabels:
-      app: sampleapp
+      app: timeoffapp
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -19,12 +19,12 @@ spec:
   template:
     metadata:
       labels:
-        app: sampleapp
+        app: timeoffapp
     spec:
       containers:
-        - image: us-east1-docker.pkg.dev/devops-challenge-357700/dockerchallenge/challengeapp:latest
+        - image: us-east1-docker.pkg.dev/devops-challenge-357700/dockerchallenge/timeoffapp:latest
           imagePullPolicy: Always
-          name: sampleapp
+          name: timeoffapp
           ports:
             - containerPort: 3000
           resources:
