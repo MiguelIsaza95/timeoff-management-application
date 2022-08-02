@@ -24,7 +24,6 @@ spec:
       containers:
         - image: us-east1-docker.pkg.dev/devops-challenge-357700/dockerchallenge/challengeapp:latest
           imagePullPolicy: Always
-          imagePullSecret: gcr-secret
           name: sampleapp
           ports:
             - containerPort: 3000
@@ -36,4 +35,6 @@ spec:
               cpu: 125m
               memory: 120Mi
       restartPolicy: Always
+      imagePullSecrets:
+        - name: gcrsecret
       terminationGracePeriodSeconds: 30
