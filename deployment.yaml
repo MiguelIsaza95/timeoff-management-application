@@ -29,11 +29,11 @@ spec:
             - containerPort: 3000
           resources:
             requests:
-              cpu: 100m
-              memory: 100Mi
+              cpu: 300m
+              memory: 1.5Gi
             limits:
               cpu: 125m
-              memory: 120Mi
+              memory: 1Gi
       restartPolicy: Always
       imagePullSecrets:
         - name: gcrsecret
